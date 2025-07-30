@@ -1,7 +1,7 @@
-# This section explicitly defines the installation command.
+# This section explicitly defines the installation command using python's module flag
+# to ensure pip is always found.
 [phases.install]
-# We run the standard pip install command. Upgrading pip first is a good practice.
-cmds = ["pip install --upgrade pip && pip install -r requirements.txt"]
+cmds = ["python -m pip install --upgrade pip && python -m pip install -r requirements.txt"]
 
 # This section defines the start command for the application.
 [start]
