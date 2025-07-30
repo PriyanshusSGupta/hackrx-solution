@@ -1,8 +1,16 @@
-# This section explicitly defines the installation command using python's module flag
-# to ensure pip is always found.
-[phases.install]
-cmds = ["python -m pip install --upgrade pip && python -m pip install -r requirements.txt"]
+# This section explicitly tells Nixpacks which system packages to install.
+# We are requesting a full version of Python 3.11, which includes pip.
+[phases.setup]
+nixPkgs = ["python311", "gcc"]
 
-# This section defines the start command for the application.
+# This section defines the installation command for python packages.
+# This will now work because the setup phase installed a python with pip.
+[phases.install]
+cmds = [
+    "python -m pip install --upgrade pip",
+    "python -m pip install -r requirements.txt"
+]
+
+# This section defines the application start command.
 [start]
 cmd = "python -m uvicorn main:app --host 0.0.0.0 --port $PORT"
