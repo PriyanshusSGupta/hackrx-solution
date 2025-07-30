@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+pypdf
+requests
+google-generativeai
+langchain
+langchain-community
+langchain-google-genai
+faiss-cpu
