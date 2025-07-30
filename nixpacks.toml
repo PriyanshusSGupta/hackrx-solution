@@ -1,4 +1,8 @@
+# This section explicitly defines the installation command.
+[phases.install]
+# We run the standard pip install command. Upgrading pip first is a good practice.
+cmds = ["pip install --upgrade pip && pip install -r requirements.txt"]
+
 # This section defines the start command for the application.
 [start]
-# We explicitly tell Nixpacks to run uvicorn as a Python module.
 cmd = "python -m uvicorn main:app --host 0.0.0.0 --port $PORT"
