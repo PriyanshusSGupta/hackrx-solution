@@ -1,0 +1,9 @@
+# railpack.toml
+
+# This section tells Railpack how to install dependencies before deploying.
+[build]
+build_command = "python -m pip install -r requirements.txt"
+
+# This section tells Railpack how to run the application.
+[deploy]
+start_command = "python -m uvicorn main:app --host 0.0.0.0 --port $PORT"
